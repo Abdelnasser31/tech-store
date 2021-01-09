@@ -10,7 +10,7 @@ firebase.initializeApp(config);
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if(!userAuth) return;
-  
+
   const userRef = firestore.doc(`users/${userAuth.uid}`);
   const snapShot = await userRef.get();
 
@@ -28,8 +28,9 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     } catch (error) {
       console.log('error creating a user', error.message)
     }
-    return userRef;
+   
   }
+  return userRef;
 }
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
